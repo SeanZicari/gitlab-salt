@@ -1,6 +1,7 @@
 base:
     '*':
         - python
+        - misc-pkgs
         - postfix
         - ruby-custom
         - users
