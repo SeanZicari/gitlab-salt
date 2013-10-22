@@ -1,9 +1,15 @@
+include:
+        - git
+
 gitlab-source:
     git.latest:
         - name: https://github.com/gitlabhq/gitlabhq.git
         - target: /home/git/gitlab
         - user: git
-        - rev: master
+        - rev: 6-2-stable
+        - force_checkout: True
+        - require:
+            - pkg.installed: git
 
 gitlab-config:
     file.managed:
@@ -25,6 +31,7 @@ gitlab-uploads:
         - name: /home/git/gitlab/public/uploads
         - user: git
         - group: git
+        - mode: 1755
         - require:
             - file: gitlab-satellites
 

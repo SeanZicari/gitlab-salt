@@ -1,7 +1,19 @@
+include:
+    - ruby
+    - gitlab-source
+
+update-gems:
+    cmd.run:
+        - name: gem update --system
+        - require:
+            - cmd.script: install_ruby
+
 charlock-gem:
     gem.installed:
         - name: charlock_holmes
         - version: 0.6.9.4
+        - require:
+            - cmd.run: update-gems
 
 gem-bundle:
     cmd.run:
@@ -25,7 +37,7 @@ gem-bundle:
 #        - name: echo yes | bundle exec rake gitlab:setup RAILS_ENV=production
 #        - user: git
 #        - cwd: /home/git/gitlab
-#        #- watch:
-#        #    - git: gitlab-source
+#        - watch:
+#            - git: gitlab-source
 #        - require:
 #            - cmd: gem-bundle

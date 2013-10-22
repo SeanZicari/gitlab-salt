@@ -15,8 +15,8 @@ production: &base
   ## GitLab settings
   gitlab:
     ## Web server settings
-    host: gitlab.chonkeys.com
-    port: 443
+    host: 192.168.1.103
+    port: 80
     https: false
 
     # Uncomment and customize the last line to run in a non-root path

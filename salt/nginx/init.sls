@@ -21,3 +21,5 @@ nginx-service:
         - enable: true
         - require:
             - file: nginx-enable-site
+        - watch:
+            - file.symlink: nginx-enable-site
