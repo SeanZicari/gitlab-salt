@@ -11,13 +11,13 @@ Getting Started
 
 #. Install salty-vagrant
 
-    .. code-block:: console
+    ::
 
         vagrant plugin install vagrant-salt
 
 #. Add the Ubuntu 12.04 base box
 
-    .. code-block:: console
+    ::
 
         vagrant box add precise64 http://files.vagrantup.com/precise64.box
 
