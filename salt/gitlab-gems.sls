@@ -37,6 +37,7 @@ gem-database:
         - name: echo yes | bundle exec rake gitlab:setup RAILS_ENV=production
         - user: git
         - cwd: /home/git/gitlab
+        - onlyif: '[[ $(sudo -u git -H psql -d gitlabhq_production -c "SELECT COUNT(1) FROM users" 2>/dev/null) ]]'
         - watch:
             - git: gitlab-source
         - require:

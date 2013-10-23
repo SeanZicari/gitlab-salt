@@ -1,19 +1,34 @@
+include:
+    - gitlab-source
+
 nginx:
     pkg.installed
 
 nginx-site:
-    file.managed:
+    file.copy:
         - name: /etc/nginx/sites-available/gitlab
-        - source: salt://nginx/gitlab
+        - source: /home/git/gitlab/lib/support/nginx/gitlab
+        - watch:
+            - git.latest: gitlab-source
         - require:
             - pkg: nginx
+
+nginx-local-site:
+    file.sed:
+        - name: /etc/nginx/sites-available/gitlab
+        - before: YOUR_SERVER_FQDN
+        - after: localhost
+        - watch:
+            - git.latest: gitlab-source
+        - require:
+            - file.copy: nginx-site
 
 nginx-enable-site:
     file.symlink:
         - name: /etc/nginx/sites-enabled/gitlab
         - target: /etc/nginx/sites-available/gitlab
         - require:
-            - file: nginx-site
+            - file.sed: nginx-local-site
 
 nginx-service:
     service.running:

@@ -1,8 +1,12 @@
+include:
+    - gitlab-source
+
 gitlab-service:
-    file.managed:
+    file.copy:
         - name: /etc/init.d/gitlab
-        - source: salt://gitlab-service/gitlab
-        - mode: 775
+        - source: /home/git/gitlab/lib/support/init.d/gitlab
+        - watch:
+            - git.latest: gitlab-source
 
 gitlab-autostart:
     cmd.run:

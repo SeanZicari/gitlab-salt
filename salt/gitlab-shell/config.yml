@@ -2,7 +2,7 @@
 user: git
 
 # Url to gitlab instance. Used for api calls. Should end with a slash.
-gitlab_url: "http://192.168.1.103/"
+gitlab_url: "http://localhost/"
 
 http_settings:
 #  user: someone

@@ -26,3 +26,8 @@ Getting Started
     ::
 
         vagrant up
+
+PLEASE NOTE!!!
+==============
+
+This salt state works best with salt 0.17.0 or higher.

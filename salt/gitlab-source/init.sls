@@ -77,5 +77,6 @@ gitlab-git-user-email:
 gitlab-git-config-autocrlf:
     cmd.run:
         - name: git config --global core.autocrlf input
+        - unless: '[[ $(git config --global core.autocrlf) == "input" ]]'
         - require:
             - cmd: gitlab-git-user-email
