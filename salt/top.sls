@@ -14,4 +14,3 @@ base:
         - gitlab-gems
         - gitlab-service
         - nginx
-        - rtorrent

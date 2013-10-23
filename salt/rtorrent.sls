@@ -1,2 +1,0 @@
-rtorrent:
-    pkg.installed
