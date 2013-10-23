@@ -23,6 +23,6 @@ Getting Started
 
 #. Fire it up!
 
-    ..
+    ::
 
         vagrant up
