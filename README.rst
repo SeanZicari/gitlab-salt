@@ -2,7 +2,7 @@ gitlab-local
 ############
 
 This is an attempt at a complete vagrant install from scratch, which should
-work on any server salt can provision.
+work on any server that salt can provision.
 
 Getting Started
 ===============
