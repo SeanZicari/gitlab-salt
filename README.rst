@@ -23,6 +23,6 @@ Getting Started
 
 #. Fire it up!
 
-    .. code-block:: console
+    ..
 
         vagrant up
